@@ -1,0 +1,94 @@
+﻿@model GetCuredProject.Models.PatientsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Patients Briefing</h4>
+    <hr />
+        <div class="row">
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                @if (string.IsNullOrEmpty(@Model.FileName))
+                {
+                    <img class="card-img-top" src="/images/patmale.jpg" alt="Card image cap">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@Model.FileName" alt="Card image cap">
+                }
+            </div>
+            <hr /><br />
+                <div>
+                 
+                  <h4><b>Name</b> : @Model.PName</h4>
+                   <p><b>Phone Number</b> : @Model.PPhone</p>
+                   <p><b>Email</b> : @Model.PEmail</p>
+                   <p><b>Gender</b> : @Model.PGender</p>
+                   <p><b>Patient's Age</b> : @Model.PAge</p>
+                   <p><b>Weight</b> : @Model.Weight</p>
+                   <p><b>Address</b> : @Model.PAddress </p>
+                   <p><b>Vaccinated</b> : @Model.Vaccinated</p>
+             
+                </div>
+        </div>
+    </div>
+
+@*    <dl class="row">
+        <dt class = "col-sm-2">
+            Patient Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PName)
+        </dd>
+        <dt class = "col-sm-2">
+            Phone Number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PPhone)
+        </dd>
+        <dt class = "col-sm-2">
+            E-mail
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            Gender
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PGender)
+        </dd>
+        <dt class = "col-sm-2">
+            Age
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PAge)
+        </dd>
+        <dt class = "col-sm-2">
+            Address
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            Weight
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccinated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vaccinated)
+        </dd>
+    </dl>*@
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

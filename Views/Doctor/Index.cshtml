@@ -1,0 +1,139 @@
+﻿@model IEnumerable<GetCuredProject.Models.DoctorModel>
+
+@{
+    ViewData["Title"] = "DoctorEntry";
+}
+<link rel="stylesheet" href="~/css/ImageMove.css" />
+@*<h1>Doctor's_Data</h1>*@
+<div class="col-10">
+    <img src="~/images/p4.png" width="50" height="50" class="d-inline-block align-top rounded-circle" alt="Image..."> <font size="6"> &nbsp <b>Doctor's Data..!!</b></font>
+    
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Doctor Name
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Qualification
+            </th>
+            <th>
+                Specialization
+            </th>
+            <th>
+                Experience
+            </th>
+            <th>
+               Rating
+            </th>
+            <th>
+              Consulting Charge
+            </th>
+            <th>
+              Hospital
+            </th>
+            <th>
+                From Time
+            </th>
+            <th>
+              To Time
+            </th>
+            <th></th>
+        </tr>
+    </thead>*@
+    @*<tbody>*@
+        <div class="row">
+        @foreach (var item in Model)
+        {
+
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <div class="img3d">
+                @if (string.IsNullOrEmpty(item.FileName))
+                {
+                    if (@item.DGender.Equals("male") || @item.DGender.Equals("Male") || @item.DGender.Equals("MALE"))
+                    {
+                        <img class="card-img-top" src="/images/DM.webp" alt="Card image cap">
+                    }
+                    else if(@item.DGender.Equals("female")||@item.DGender.Equals("Female")||@item.DGender.Equals("FEMALE"))
+                    {
+                        <img class="card-img-top" src="/images/DF.webp" alt="Card image cap">
+                    }
+
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@item.FileName" alt="Card image cap">
+                }
+                </div>
+                <div class="card-body" style="background-color:bisque">
+                    <h4 class="card-title">@item.DName</h4>
+                    <p class="card-text">Specialization: @item.DSpecialisation</p>
+                    <p class="card-text">Consultation charge : @item.DFee</p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+           @* <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DGender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DQualification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DSpecialisation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DExperience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hospital.ClinicName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToTime)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@

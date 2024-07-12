@@ -1,0 +1,117 @@
+﻿@model IEnumerable<GetCuredProject.Models.PatientsModel>
+
+@{
+    ViewData["Title"] = "PatientEntry";
+}
+<link rel="stylesheet" href="~/css/ImageMove.css" />
+<div class="col-10">
+    <img src="~/images/p4.png" width="50" height="50" class="d-inline-block align-top rounded-circle" alt="Image..."> <font size="6"> &nbsp <b>Patient's Data..!!</b></font>
+    
+</div>
+@*<h1>Patient Data</h1>*@
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+ <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <div class=" img3d">
+                @if (string.IsNullOrEmpty(item.FileName))
+                {
+                    if (@item.PGender.Equals("male") || @item.PGender.Equals("Male") || @item.PGender.Equals("MALE"))
+                    {
+                        <img class="card-img-top" src="/images/patmale.jpg" alt="Card image cap">
+                    }
+                    else if(@item.PGender.Equals("female")||@item.PGender.Equals("Female")||@item.PGender.Equals("FEMALE"))
+                    {
+                        <img class="card-img-top" src="/images/patfemale.webp" alt="Card image cap">
+                    }
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@item.FileName" alt="Card image cap">
+                }
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title"> @item.PName </h4>
+                    <p class="card-text">Patient Age : @item.PAge </p>
+                    <p class="card-text">Address : @item.PAddress </p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Weight
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vaccinated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaccinated)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

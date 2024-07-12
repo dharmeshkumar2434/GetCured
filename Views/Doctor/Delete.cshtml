@@ -1,0 +1,93 @@
+﻿@model GetCuredProject.Models.DoctorModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete..!!</h1>
+
+<h3>Are you sure you want to delete this</h3>
+<div>
+    <h4>Doctor's Data?</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Doctor's Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DName)
+        </dd>
+        <dt class = "col-sm-2">
+            Phone Number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DPhone)
+        </dd>
+        <dt class = "col-sm-2">
+            Email
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            Gender
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DGender)
+        </dd>
+        <dt class = "col-sm-2">
+            Qualification
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DQualification)
+        </dd>
+        <dt class = "col-sm-2">
+            Specialisation
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DSpecialisation)
+        </dd>
+        <dt class = "col-sm-2">
+            Experience
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DExperience)
+        </dd>
+        <dt class = "col-sm-2">
+            Rating
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DRating)
+        </dd>
+        <dt class = "col-sm-2">
+            Consultation Charge
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DFee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hospital)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hospital.ClinicName)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FromTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FromTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ToTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ToTime)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

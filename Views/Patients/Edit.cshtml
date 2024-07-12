@@ -1,0 +1,73 @@
+﻿@model GetCuredProject.Models.PatientsModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PatientsModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PName" class="control-label">Patient's Name</label>
+                <input asp-for="PName" class="form-control" />
+                <span asp-validation-for="PName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PPhone" class="control-label">Phone Number</label>
+                <input asp-for="PPhone" class="form-control" />
+                <span asp-validation-for="PPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PEmail" class="control-label">E-mail</label>
+                <input asp-for="PEmail" class="form-control" />
+                <span asp-validation-for="PEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PGender" class="control-label">Gender</label>
+                <input asp-for="PGender" class="form-control" />
+                <span asp-validation-for="PGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PAge" class="control-label">Patient's Age</label>
+                <input asp-for="PAge" class="form-control" />
+                <span asp-validation-for="PAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Select Image</label>
+                <input type="file" name="file" />
+            </div>
+            <div class="form-group">
+                <label asp-for="PAddress" class="control-label">Address</label>
+                <input asp-for="PAddress" class="form-control" />
+                <span asp-validation-for="PAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label">Patient's Weight</label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Vaccinated" /> @Html.DisplayNameFor(model => model.Vaccinated)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

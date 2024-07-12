@@ -1,0 +1,80 @@
+﻿@model IEnumerable<GetCuredProject.Models.HospitalOrClinicModel>
+
+@{
+    ViewData["Title"] = "HospitalOrClinic";
+}
+<link rel="stylesheet" href="~/css/ImageMove.css" />
+<div class="col-10">
+    <img src="~/images/p4.png" width="50" height="50" class="d-inline-block align-top rounded-circle" alt="Image..."> <font size="6"> &nbsp <b>Doctor's Clinic!!</b></font>
+    
+</div>
+@*<h1>Doctor's Place</h1>*@
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+        <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="img3d">
+            <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                @if (string.IsNullOrEmpty(item.FileName))
+                {
+                    <img class="card-img-top" src="/images/hospital.png" alt="Card image cap">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@item.FileName" alt="Card image cap">
+                }
+             
+                <div class="card-body">
+                    <h4 class="card-title">@item.ClinicName</h4>
+                     <p class="card-text">Cabin Number : @item.CabinNo</p>
+                    <p class="card-text">Address : @item.ClinicAddress</p>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                   </div>
+                </div>
+            </div>
+        </div>
+        }
+        </div>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CabinNo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CabinNo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

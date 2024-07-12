@@ -1,0 +1,135 @@
+﻿@model GetCuredProject.Models.DoctorModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details..!!</h1>
+
+<div>
+    <h4>Doctor's Data</h4>
+    <hr />
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                @if (string.IsNullOrEmpty(@Model.FileName))
+                {
+                    <img class="card-img-top" src="/images/DM.webp" alt="Card image cap">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@Model.FileName" alt="Card image cap">
+                }
+            </div>
+            <hr /><br />
+                <div>
+                 
+                  <h4><b>Name</b> : @Model.DName</h4>
+                   <p><b>Phone Number</b> : @Model.DPhone</p>
+                   <p><b>Email</b> : @Model.DEmail</p>
+                   <p><b>Gender</b> : @Model.DGender</p>
+                   <p><b>Qualification</b> : @Model.DQualification</p>
+                   <p><b>Experience</b> : @Model.DExperience</p>
+                   <p><b>Specialization</b> : @Model.DSpecialisation </p>
+                   <p><b>Rating</b> : @Model.DRating</p>
+                   <p><b>Consultation Fee</b> : @Model.DFee</p>
+                   <p><b>Hospital</b> : @Model.Hospital.ClinicName</p>
+                   <p><b>FromTime</b> : @Model.FromTime</p>
+                   <p><b>ToTime</b> : @Model.ToTime</p>
+                  
+                </div>
+        </div>
+    </div>
+   @* <dl class="row">
+                <dd class="col-sm-10">
+            <div class="form-group">
+                @if (string.IsNullOrEmpty(@Model.FileName))
+                {
+                
+                    <img class="card-img-top" src="/images/DM.webp" alt="Card image cap" style="width : 250px;" height="200">
+                }
+                else
+                {
+                    <img class="card-img-top" src="/uploads/@Model.FileName" alt="Card image cap" style="width : 250px" height="200">
+                }
+            </div>
+        </dd>
+
+        <dt class = "col-sm-2">
+            Doctor's Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DName)
+        </dd>
+        <dt class = "col-sm-2">
+            Phone Number
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DPhone)
+        </dd>
+        <dt class = "col-sm-2">
+            Email
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            Gender
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DGender)
+        </dd>
+        <dt class = "col-sm-2">
+            Qualification
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DQualification)
+        </dd>
+        <dt class = "col-sm-2">
+            Specialisation
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DSpecialisation)
+        </dd>
+        <dt class = "col-sm-2">
+            Experience
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DExperience)
+        </dd>
+        <dt class = "col-sm-2">
+            Rating
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DRating)
+        </dd>
+        <dt class = "col-sm-2">
+            Consultation Charge
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DFee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hospital)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hospital.ClinicName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FromTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FromTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ToTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ToTime)
+        </dd>
+    </dl>*@
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
